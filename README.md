@@ -18,7 +18,7 @@ The following items are needed for this project
 
 Connect the sensor as shown on the image
 
-![Arduino pin connection](https://raw.githubusercontent.com/jonathaneeckhout/arduino_sensors_to_i2c/blob/master/i2c_sensors_arduino_bb.jpg)
+![Arduino pin connection](https://raw.githubusercontent.com/jonathaneeckhout/arduino_sensors_to_i2c/master/i2c_sensors_arduino_bb.jpg)
 
 
 ## Authors
