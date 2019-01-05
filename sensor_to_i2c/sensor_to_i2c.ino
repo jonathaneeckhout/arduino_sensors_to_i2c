@@ -40,6 +40,11 @@ uint8_t digitalReadValue[DIGITAL_INPUTS] = {
   0x0
 };
 
+uint8_t digitalPrevValue[DIGITAL_INPUTS] = {
+  HIGH,
+  HIGH
+};
+
 uint8_t digitalOutValue[DIGITAL_INPUTS] = {
   0x0,
   0x0
@@ -89,9 +94,10 @@ void readAllInputs() {
     }
     if ((millis() - lastDebounceTimeButtons[i]) > debounceDelay) {
       // Low is high
-      if (digitalReadValue[i] == LOW) {
-        digitalOutValue[i] = 0x1;
+      if (digitalReadValue[i] == LOW && digitalPrevValue[i] == HIGH) { //only trigger the button on a rising edge
+        digitalOutValue[i] = 0x1;    
       }
+      digitalPrevValue[i] = digitalReadValue[i];
     }
     lastDigitalOutValue[i] = digitalReadValue[i];
   }
